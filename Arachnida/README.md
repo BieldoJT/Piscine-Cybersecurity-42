@@ -14,3 +14,8 @@
 - source .venv/bin/activate
 ### Pra desativar a venv
 - deactivate
+
+
+
+### Forma que o input do spider funciona
+- ./spider [-r] [-l N] [-p PATH] URL
