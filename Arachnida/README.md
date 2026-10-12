@@ -19,3 +19,7 @@
 
 ### Forma que o input do spider funciona
 - ./spider [-r] [-l N] [-p PATH] URL
+
+### Onde altera o codigo?
+- a main está no __init__.py, o executavel só roda o esse arquivo agora
+- Sempre que adicionar algo novo, colocar no __init__
