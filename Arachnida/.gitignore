@@ -1,3 +1,4 @@
 #directories to ignore
 .venv/
 data/
+spider_lib/__pycache__/
