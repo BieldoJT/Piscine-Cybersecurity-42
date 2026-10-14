@@ -23,3 +23,7 @@
 ### Onde altera o codigo?
 - a main está no __init__.py, o executavel só roda o esse arquivo agora
 - Sempre que adicionar algo novo, colocar no __init__
+
+
+##### Pra testar
+- https://books.toscrape.com/
