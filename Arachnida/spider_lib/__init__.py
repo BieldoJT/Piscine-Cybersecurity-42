@@ -1,8 +1,9 @@
 from .cli import validar_input
-from .fetcher import acessa_url_pega_imagens
+from .parser import acessa_url_pega_imagens, parser_url
 
 def main():
 	args = validar_input()
 	lista_urls = acessa_url_pega_imagens(args.URL)
-	#print("RODEI")
-	#print(args)
+	lista = parser_url(args.URL, lista_urls)
+	print("RODEI")
+	print(lista)
