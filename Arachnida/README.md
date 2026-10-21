@@ -27,3 +27,5 @@
 
 ##### Pra testar
 - https://books.toscrape.com/
+
+# Usar as urls para baixar as imagnes
