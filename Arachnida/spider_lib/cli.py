@@ -28,7 +28,6 @@ def validar_input():
 	#Verifica se o path é valido, caso contrário, cria o .data
 	if args.path is None:
 		args.path = DEFAULT_PATH
-		Path(args.path).mkdir(parents=True, exist_ok=True)
 	elif not Path(args.path).is_dir():
 		parser.error("Must specify a valid PATH")
 
