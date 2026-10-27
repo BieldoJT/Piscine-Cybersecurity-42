@@ -5,7 +5,8 @@ from pathlib import Path
 DEPTH_RECURSIVE = 5
 DEFAULT_PATH = "./data/"
 
-def validar_input():
+def validar_input() -> argparse.Namespace:
+	"""Lê e valida os argumentos da linha de comando (-r, -l, -p e URL) e retorna o namespace do argparse."""
 
 	# Iniciar o argparse
 	parser = argparse.ArgumentParser(description="Download images from a website recursivily")
