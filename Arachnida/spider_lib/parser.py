@@ -1,8 +1,10 @@
+import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urlparse, urljoin
 
 
-def acessa_url_pega_imagens(requisicao):
+def acessa_url_pega_imagens(requisicao: requests.Response) -> list[str | None]:
+	"""Recebe a resposta HTTP e retorna o 'src' de todas as tags <img> da página."""
 
 	list_images_url = []
 
@@ -13,7 +15,8 @@ def acessa_url_pega_imagens(requisicao):
 	#print(list_images_url)
 	return list_images_url
 
-def parser_url(url: str, lista_Urls):
+def parser_url(url: str, lista_Urls: list[str | None]) -> list[str]:
+	"""Converte os 'src' em URLs absolutas, descartando data URIs e arquivos que não sejam imagens."""
 	EXTENSOES = (".jpg", ".jpeg", ".png", ".gif", ".bmp")
 
 	print(urlparse(url=url))

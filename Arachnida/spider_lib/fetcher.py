@@ -2,7 +2,8 @@ import requests
 from requests.exceptions import HTTPError, Timeout
 
 
-def requisicao_url(url : str):
+def requisicao_url(url: str) -> requests.Response | None:
+	"""Faz o GET na URL e retorna a resposta; em caso de erro imprime a mensagem e retorna None."""
 
 	try:
 		#timeout -> um numero -> tempo em segundos
