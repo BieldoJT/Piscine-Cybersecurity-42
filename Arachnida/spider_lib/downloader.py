@@ -6,9 +6,6 @@ import os
 import hashlib
 
 
-#Path(args.path).mkdir(parents=True, exist_ok=True)
-
-
 
 def _hash_arquivo(caminho: str) -> str:
 	"""Retorna o SHA-256 do conteúdo de um arquivo."""
@@ -61,12 +58,6 @@ def baixa_imagem(url : str, path: str):
 	finally:
 		if os.path.exists(temporario):
 			os.remove(temporario)
-
-#	# --- EXEMPLO DE USO EM LOTE ---
-#urls_imagens = [
-#    "https://unsplash.com",  # Imagem normal
-#    "https://wikimedia.org",  # Formato pesado
-#]
 
 	return
 
