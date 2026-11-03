@@ -1,6 +1,7 @@
 from .cli import validar_input
 from .parser import acessa_url_pega_imagens, parser_url
 from .fetcher import requisicao_url
+from .downloader import baixa_imagem
 
 
 def main() -> None:
@@ -11,5 +12,8 @@ def main() -> None:
 		raise RuntimeError("Não foi possível obter a resposta da URL")
 	lista_urls = acessa_url_pega_imagens(requisao)
 	lista = parser_url(args.URL, lista_urls)
+	for link in lista:
+		baixa_imagem(link, args.path)
+
 	print("RODEI")
 	print(lista)
