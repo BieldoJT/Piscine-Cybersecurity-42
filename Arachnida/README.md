@@ -27,5 +27,7 @@
 
 ##### Pra testar
 - https://books.toscrape.com/
+- https://unsplash.com,  # Imagem normal
+- https://wikimedia.org,  # Formato pesado
 
 # Usar as urls para baixar as imagnes

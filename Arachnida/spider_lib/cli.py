@@ -1,5 +1,6 @@
 import argparse
 from pathlib import Path
+from .utils import cria_pasta
 
 
 DEPTH_RECURSIVE = 5
@@ -26,11 +27,15 @@ def validar_input() -> argparse.Namespace:
 	if args.level is None:
 		args.level = DEPTH_RECURSIVE
 
-	#Verifica se o path é valido, caso contrário, cria o .data
+	#Usa o path padrão se não foi informado; cria a pasta se ela não existir
 	if args.path is None:
 		args.path = DEFAULT_PATH
-	elif not Path(args.path).is_dir():
-		parser.error("Must specify a valid PATH")
+	if Path(args.path).exists() and not Path(args.path).is_dir():
+		parser.error(f"PATH '{args.path}' exists but is not a directory")
+	try:
+		cria_pasta(args.path)
+	except OSError as e:
+		parser.error(f"Could not create PATH '{args.path}': {e}")
 
 	return args
 
