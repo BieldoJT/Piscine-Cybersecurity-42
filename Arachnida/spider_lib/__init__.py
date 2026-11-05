@@ -1,23 +1,14 @@
 from .cli import validar_input
-from .parser import acessa_url_pega_imagens, parser_url
-from .fetcher import requisicao_url
-from .downloader import baixa_imagem
+from .crawler import rastreia
 
 
 def main() -> None:
-	"""Ponto de entrada: valida os argumentos, busca a página e lista as URLs de imagens encontradas."""
+	"""Ponto de entrada: valida os argumentos e baixa as imagens (da página, ou do site todo com -r)."""
 
 	args = validar_input()
 
-	# verificar os links que devem ser visitados
+	# sem -r só a página informada; com -r segue links até o nível -l
+	nivel_max = args.level if args.recursive else 0
+	imagens = rastreia(args.URL, nivel_max, args.path)
 
-	requisao = requisicao_url(args.URL)
-	if requisao is None:
-		raise RuntimeError("Não foi possível obter a resposta da URL")
-	lista_urls = acessa_url_pega_imagens(requisao)
-	lista = parser_url(args.URL, lista_urls)
-	for link in lista:
-		baixa_imagem(link, args.path)
-
-	print("RODEI")
-	print(lista)
+	print(f"Total de imagens encontradas: {len(imagens)}")
